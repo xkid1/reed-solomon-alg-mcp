@@ -1,11 +1,17 @@
 "area: rust":
-  - "src/**/*"
-  - "Cargo.toml"
-  - "Cargo.lock"
+  - changed-files:
+      - any-glob-to-any-file:
+          - "src/**/*"
+          - "Cargo.toml"
+          - "Cargo.lock"
 
 "area: ci":
-  - ".github/**/*"
+  - changed-files:
+      - any-glob-to-any-file:
+          - ".github/**/*"
 
 "area: docs":
-  - "*.md"
-  - "LICENSE"
+  - changed-files:
+      - any-glob-to-any-file:
+          - "*.md"
+          - "LICENSE"
