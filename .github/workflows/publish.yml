@@ -10,7 +10,7 @@ jobs:
       contents: read
       packages: write # push to ghcr.io
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - name: Test
         run: cargo test
       - name: Compute version
