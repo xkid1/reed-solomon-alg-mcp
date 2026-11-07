@@ -67,6 +67,8 @@ jobs:
           [ "${image##*:}" = "$json_version" ]    || { echo "::error::image tag does not match server.json version"; exit 1; }
           [ "$name" = "$label" ]                  || { echo "::error::Dockerfile label does not match server.json name"; exit 1; }
           [ "$desc_len" -le 100 ]                 || { echo "::error::server.json description exceeds 100 characters"; exit 1; }
-          if grep -rIn 'YOUR_GITHUB' --include='*.json' --include='*.toml' --include='Dockerfile' --include='*.yml' .; then
+
+          # Search for leftover placeholder tokens (split string prevents self-matching)
+          if grep -rIn 'YOUR_''GITHUB' --include='*.json' --include='*.toml' --include='Dockerfile' --include='*.yml' .; then
             echo "::error::placeholder left in project files"; exit 1
           fi

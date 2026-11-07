@@ -1,0 +1,9 @@
+name: "Reed-Solomon Algorithm MCP"
+description: "Model Context Protocol (MCP) server for Reed-Solomon error correction algorithms."
+author: "Elmer Tubera Alluad Jr."
+branding:
+  icon: "cpu"
+  color: "blue"
+runs:
+  using: "docker"
+  image: "docker://ghcr.io/xkid1/reed-solomon-alg-mcp:latest"

@@ -1,0 +1,30 @@
+name: PR Welcome Bot
+
+on:
+  pull_request:
+    types: [opened]
+
+permissions:
+  pull-requests: write
+
+jobs:
+  welcome:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Comment on PR
+        uses: actions/github-script@v7
+        with:
+          script: |
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: `👋 Thanks for opening this Pull Request, @${context.actor}!
+
+              Our automated CI suite will now run code convention, linting, and build checks.
+
+              - **Repository Admin:** @xkid1
+              - **MCP Server:** \`io.github.xkid1/reed-solomon-alg-mcp\`
+
+              *Please ensure all status checks pass before requesting a review.* 🚀`
+            })
