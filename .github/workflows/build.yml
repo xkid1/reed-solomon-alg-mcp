@@ -1,0 +1,44 @@
+name: Build
+
+on:
+  workflow_call:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+env:
+  CARGO_TERM_COLOR: always
+
+jobs:
+  binary:
+    name: Release binary
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - uses: Swatinem/rust-cache@v2
+      - name: Build
+        run: cargo build --release --locked
+      - uses: actions/upload-artifact@v4
+        with:
+          name: reed-solomon-mcp-linux-x86_64
+          path: target/release/reed-solomon-mcp
+          retention-days: 7
+
+  docker:
+    name: Docker image
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build image (not pushed)
+        run: docker build -t reed-solomon-mcp:ci .
+      - name: Smoke test the container
+        run: bash scripts/smoke-test.sh docker run -i --rm reed-solomon-mcp:ci
+      - name: Registry label matches server.json
+        run: |
+          expected=$(jq -r .name server.json)
+          actual=$(docker inspect reed-solomon-mcp:ci --format '{{ index .Config.Labels "io.modelcontextprotocol.server.name" }}')
+          echo "server.json name: $expected"
+          echo "image label:      $actual"
+          [ "$expected" = "$actual" ]
