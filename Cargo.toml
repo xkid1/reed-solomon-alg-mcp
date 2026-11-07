@@ -1,0 +1,17 @@
+[package]
+name = "reed-solomon-mcp"
+version = "0.1.0"
+edition = "2021"
+description = "MCP server that encodes, decodes, and explains Reed-Solomon codes over GF(2^8)"
+license = "MIT"
+repository = "https://github.com/xkid1/reed-solomon-alg-mcp"
+readme = "README.md"
+keywords = ["mcp", "reed-solomon", "error-correction", "galois-field"]
+
+[dependencies]
+serde_json = "1"
+
+[profile.release]
+opt-level = 3
+lto = true
+strip = true

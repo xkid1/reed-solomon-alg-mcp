@@ -1,0 +1,19 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-10-17/server.schema.json",
+  "name": "io.github.xkid1/reed-solomon-alg-mcp",
+  "description": "Reed-Solomon assistant: encode, decode/correct, syndromes, generator polynomials and GF(256) math, written in Rust.",
+  "repository": {
+    "url": "https://github.com/xkid1/reed-solomon-alg-mcp",
+    "source": "github"
+  },
+  "version": "0.1.0",
+  "packages": [
+    {
+      "registryType": "oci",
+      "identifier": "ghcr.io/xkid1/reed-solomon-alg-mcp:0.1.0",
+      "transport": {
+        "type": "stdio"
+      }
+    }
+  ]
+}
