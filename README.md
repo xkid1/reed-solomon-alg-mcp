@@ -5,6 +5,13 @@
 **An MCP server that encodes, decodes, and explains Reed-Solomon error-correcting codes.**
 
 [![CI](https://img.shields.io/github/actions/workflow/status/xkid1/reed-solomon-alg-mcp/ci.yml?branch=main&label=CI&logo=githubactions&logoColor=white)](https://github.com/xkid1/reed-solomon-alg-mcp/actions/workflows/ci.yml)
+[![Build](https://img.shields.io/github/actions/workflow/status/xkid1/reed-solomon-alg-mcp/build.yml?branch=main&label=Build&logo=githubactions&logoColor=white)](https://github.com/xkid1/reed-solomon-alg-mcp/actions/workflows/build.yml)
+[![Test](https://img.shields.io/github/actions/workflow/status/xkid1/reed-solomon-alg-mcp/test.yml?branch=main&label=Test&logo=githubactions&logoColor=white)](https://github.com/xkid1/reed-solomon-alg-mcp/actions/workflows/test.yml)
+[![Publish](https://img.shields.io/github/actions/workflow/status/xkid1/reed-solomon-alg-mcp/publish.yml?branch=main&label=Publish&logo=githubactions&logoColor=white)](https://github.com/xkid1/reed-solomon-alg-mcp/actions/workflows/publish.yml)
+[![Action](https://img.shields.io/github/actions/workflow/status/xkid1/reed-solomon-alg-mcp/action.yml?branch=main&label=Action&logo=githubactions&logoColor=white)](https://github.com/xkid1/reed-solomon-alg-mcp/actions/workflows/action.yml)
+[![Code Conventions](https://img.shields.io/github/actions/workflow/status/xkid1/reed-solomon-alg-mcp/code-conventions.yml?branch=main&label=Conventions&logo=githubactions&logoColor=white)](https://github.com/xkid1/reed-solomon-alg-mcp/actions/workflows/code-conventions.yml)
+[![PR Labeler](https://img.shields.io/github/actions/workflow/status/xkid1/reed-solomon-alg-mcp/pr-labeler.yml?branch=main&label=Labeler&logo=githubactions&logoColor=white)](https://github.com/xkid1/reed-solomon-alg-mcp/actions/workflows/pr-labeler.yml)
+[![PR Welcome](https://img.shields.io/github/actions/workflow/status/xkid1/reed-solomon-alg-mcp/pr-welcome.yml?branch=main&label=Welcome&logo=githubactions&logoColor=white)](https://github.com/xkid1/reed-solomon-alg-mcp/actions/workflows/pr-welcome.yml)
 [![Made with Rust](https://img.shields.io/badge/Made%20with-Rust-orange?logo=rust&logoColor=white)](https://www.rust-lang.org/)
 [![License: MIT](https://img.shields.io/github/license/xkid1/reed-solomon-alg-mcp)](LICENSE)
 [![MCP Registry](https://img.shields.io/badge/MCP%20Registry-io.github.xkid1%2Freed--solomon--alg--mcp-blue)](https://registry.modelcontextprotocol.io/v0/servers?search=io.github.xkid1/reed-solomon-alg-mcp)
