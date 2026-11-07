@@ -1,0 +1,44 @@
+name: CI
+
+# Pull requests to main: test and build first (in parallel),
+# then the code-convention checks, then one summary job to require in branch protection.
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    name: Test
+    uses: ./.github/workflows/test.yml
+
+  build:
+    name: Build
+    uses: ./.github/workflows/build.yml
+
+  conventions:
+    name: Code conventions
+    needs: [test, build]
+    uses: ./.github/workflows/code-conventions.yml
+
+  ci:
+    name: CI passed
+    if: always()
+    needs: [test, build, conventions]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Require every stage to succeed
+        run: |
+          echo "test=${{ needs.test.result }} build=${{ needs.build.result }} conventions=${{ needs.conventions.result }}"
+          [ "${{ needs.test.result }}" = "success" ] && \
+          [ "${{ needs.build.result }}" = "success" ] && \
+          [ "${{ needs.conventions.result }}" = "success" ]
