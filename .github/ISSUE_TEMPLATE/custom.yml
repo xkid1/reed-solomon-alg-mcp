@@ -1,0 +1,12 @@
+name: Custom template
+description: Blank template for general questions, feedback, or other types of issues.
+title: "[Custom]: "
+labels: ["question", "triage"]
+body:
+  - type: textarea
+    id: content
+    attributes:
+      label: Details
+      placeholder: Provide details about your request, question, or feedback...
+    validations:
+      required: true

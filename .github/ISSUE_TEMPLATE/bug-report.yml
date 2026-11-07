@@ -1,0 +1,21 @@
+name: Bug Report
+description: File a bug report to help us improve the Reed-Solomon MCP server.
+title: "[Bug]: "
+labels: ["bug", "triage"]
+body:
+  - type: textarea
+    id: description
+    attributes:
+      label: Bug Description
+      description: A clear and concise description of what the bug is.
+      placeholder: Describe the unexpected behavior...
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Steps to Reproduce
+      description: How can we replicate this issue?
+      placeholder: 1. Run client with...
+    validations:
+      required: true
