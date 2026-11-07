@@ -1,0 +1,11 @@
+"area: rust":
+  - "src/**/*"
+  - "Cargo.toml"
+  - "Cargo.lock"
+
+"area: ci":
+  - ".github/**/*"
+
+"area: docs":
+  - "*.md"
+  - "LICENSE"
