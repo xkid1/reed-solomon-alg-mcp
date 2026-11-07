@@ -1,0 +1,72 @@
+name: Code conventions
+
+on:
+  workflow_call:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+env:
+  CARGO_TERM_COLOR: always
+
+jobs:
+  rustfmt:
+    name: rustfmt
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          components: rustfmt
+      - run: cargo fmt --check
+
+  clippy:
+    name: clippy
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          components: clippy
+      - uses: Swatinem/rust-cache@v2
+      - run: cargo clippy --locked --all-targets -- -D warnings
+
+  stdout-guard:
+    name: stdout is reserved for JSON-RPC
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Reject println!/print! in src
+        run: |
+          if grep -rnE '(^|[^e])print(ln)?!' src; then
+            echo "::error::Use eprintln! for logs. stdout carries the MCP protocol."
+            exit 1
+          fi
+
+  release-metadata:
+    name: Release metadata is consistent
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check Cargo.toml, server.json and Dockerfile
+        run: |
+          set -euo pipefail
+          cargo_version=$(grep -m1 '^version' Cargo.toml | cut -d'"' -f2)
+          json_version=$(jq -r .version server.json)
+          image=$(jq -r '.packages[0].identifier' server.json)
+          name=$(jq -r .name server.json)
+          label=$(grep -oP 'io.modelcontextprotocol.server.name="\K[^"]+' Dockerfile)
+          desc_len=$(jq -r '.description | length' server.json)
+          echo "Cargo.toml version : $cargo_version"
+          echo "server.json version: $json_version"
+          echo "image              : $image"
+          echo "name / label       : $name / $label"
+          echo "description length : $desc_len"
+          [ "$cargo_version" = "$json_version" ]  || { echo "::error::Cargo.toml and server.json versions differ"; exit 1; }
+          [ "${image##*:}" = "$json_version" ]    || { echo "::error::image tag does not match server.json version"; exit 1; }
+          [ "$name" = "$label" ]                  || { echo "::error::Dockerfile label does not match server.json name"; exit 1; }
+          [ "$desc_len" -le 100 ]                 || { echo "::error::server.json description exceeds 100 characters"; exit 1; }
+          if grep -rIn 'YOUR_GITHUB' --include='*.json' --include='*.toml' --include='Dockerfile' --include='*.yml' .; then
+            echo "::error::placeholder left in project files"; exit 1
+          fi
