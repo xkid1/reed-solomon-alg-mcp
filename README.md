@@ -16,7 +16,8 @@
 [![License: MIT](https://img.shields.io/github/license/xkid1/reed-solomon-alg-mcp)](LICENSE)
 [![MCP Registry](https://img.shields.io/badge/MCP%20Registry-io.github.xkid1%2Freed--solomon--alg--mcp-blue)](https://registry.modelcontextprotocol.io/v0/servers?search=io.github.xkid1/reed-solomon-alg-mcp)
 [![Docker image](https://img.shields.io/badge/ghcr.io-reed--solomon--alg--mcp-2496ED?logo=docker&logoColor=white)](https://github.com/users/xkid1/packages/container/package/reed-solomon-alg-mcp)
-[![PRs welcome](https://img.shields.io/badge/PRs-welcome-brightgreen)](CONTRIBUTING.md)
+[![Listed on mcpservers.org](https://mcpservers.org/badge.svg)](https://mcpservers.org/servers/xkid1/reed-solomon-alg-mcp)
+[![Dependabot Updates](https://github.com/xkid1/reed-solomon-alg-mcp/actions/workflows/dependabot/dependabot-updates/badge.svg)](https://github.com/xkid1/reed-solomon-alg-mcp/actions/workflows/dependabot/dependabot-updates)
 
 </div>
 
