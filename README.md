@@ -18,6 +18,7 @@
 [![Docker image](https://img.shields.io/badge/ghcr.io-reed--solomon--alg--mcp-2496ED?logo=docker&logoColor=white)](https://github.com/users/xkid1/packages/container/package/reed-solomon-alg-mcp)
 [![Listed on mcpservers.org](https://mcpservers.org/badge.svg)](https://mcpservers.org/servers/xkid1/reed-solomon-alg-mcp)
 [![Dependabot Updates](https://github.com/xkid1/reed-solomon-alg-mcp/actions/workflows/dependabot/dependabot-updates/badge.svg)](https://github.com/xkid1/reed-solomon-alg-mcp/actions/workflows/dependabot/dependabot-updates)
+[![M8ven Score](https://m8ven.ai/badge/mcp/xkid1-reed-solomon-alg-mcp-1lbk09)](https://m8ven.ai/mcp/xkid1-reed-solomon-alg-mcp-1lbk09?s=readme)
 
 </div>
 
