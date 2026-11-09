@@ -19,6 +19,7 @@
 [![Listed on mcpservers.org](https://mcpservers.org/badge.svg)](https://mcpservers.org/servers/xkid1/reed-solomon-alg-mcp)
 [![Dependabot Updates](https://github.com/xkid1/reed-solomon-alg-mcp/actions/workflows/dependabot/dependabot-updates/badge.svg)](https://github.com/xkid1/reed-solomon-alg-mcp/actions/workflows/dependabot/dependabot-updates)
 [![M8ven Score](https://m8ven.ai/badge/mcp/xkid1-reed-solomon-alg-mcp-1lbk09)](https://m8ven.ai/mcp/xkid1-reed-solomon-alg-mcp-1lbk09?s=readme)
+[![MCP on mcprush](https://mcprush.com/badge/reed-solomon-alg-mcp/score.svg)](https://mcprush.com/to/reed-solomon-alg-mcp?ref=badge)
 
 </div>
 
